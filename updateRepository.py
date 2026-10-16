@@ -52,11 +52,15 @@ def extract_metadata(zip_path: str, version: str) -> tuple:
 
                 for ver in metadata.get("versions", []):
                     if ver.get("version") == version:
-                        return (ver.get("status", DEFAULT_STATUS), ver.get("kicad_version", DEFAULT_KICAD_VERSION))
+                        return (
+                            ver.get("status", DEFAULT_STATUS),
+                            ver.get("kicad_version", DEFAULT_KICAD_VERSION),
+                            ver.get("kicad_version_max"),
+                        )
     except (KeyError, json.JSONDecodeError, zipfile.BadZipFile):
         pass
 
-    return DEFAULT_STATUS, DEFAULT_KICAD_VERSION
+    return DEFAULT_STATUS, DEFAULT_KICAD_VERSION, None
 
 
 def process_asset(asset_url: str, version: str) -> Optional[tuple]:
@@ -74,9 +78,9 @@ def process_asset(asset_url: str, version: str) -> Optional[tuple]:
         sha256 = calculate_sha256(tmp_path)
         download_size = os.path.getsize(tmp_path)
         install_size = get_zip_contents_size(tmp_path)
-        status, kicad_version = extract_metadata(tmp_path, version)
+        status, kicad_version, kicad_version_max = extract_metadata(tmp_path, version)
 
-        return sha256, download_size, install_size, status, kicad_version
+        return sha256, download_size, install_size, status, kicad_version, kicad_version_max
     except Exception as e:
         print(f"Failed to process asset {asset_url}: {e}")
         return None
@@ -102,43 +106,50 @@ def update_packages_json(packages_json_file: str, releases: List[Dict]) -> None:
 
     validate_packages_structure(packages)
 
-    existing_versions = {v["version"]: v for package in packages["packages"] for v in package.get("versions", [])}
+    # Each release has one zip per KiCad version, so key on the download URL
+    existing_urls = {v.get("download_url") for package in packages["packages"] for v in package.get("versions", [])}
 
     for release in releases:
         version = release.get("tag_name")
-        assets = release.get("assets", [])
-
-        asset = next(
-            (
-                a
-                for a in assets
-                if a.get("name", "").startswith("JLCPCB-KiCad-Library-") and a.get("name", "").endswith(".zip")
-            ),
-            None,
-        )
-
-        if not asset or not version or version in existing_versions:
+        if not version:
             continue
 
-        download_url = asset.get("browser_download_url")
-        result = process_asset(download_url, version)
+        assets = [
+            a
+            for a in release.get("assets", [])
+            if a.get("name", "").startswith("JLCPCB-KiCad-Library-") and a.get("name", "").endswith(".zip")
+        ]
 
-        if not result:
-            continue
+        for asset in assets:
+            download_url = asset.get("browser_download_url")
+            if not download_url or download_url in existing_urls:
+                continue
 
-        sha256, d_size, i_size, status, kicad_ver = result
+            result = process_asset(download_url, version)
 
-        new_version = {
-            "version": version,
-            "status": status,
-            "kicad_version": kicad_ver,
-            "download_sha256": sha256,
-            "download_size": d_size,
-            "install_size": i_size,
-            "download_url": download_url,
-        }
+            if not result:
+                continue
 
-        packages["packages"][0]["versions"].insert(0, new_version)
+            sha256, d_size, i_size, status, kicad_ver, kicad_ver_max = result
+
+            new_version = {
+                "version": version,
+                "status": status,
+                "kicad_version": kicad_ver,
+            }
+            if kicad_ver_max:
+                new_version["kicad_version_max"] = kicad_ver_max
+            new_version.update(
+                {
+                    "download_sha256": sha256,
+                    "download_size": d_size,
+                    "install_size": i_size,
+                    "download_url": download_url,
+                }
+            )
+
+            packages["packages"][0]["versions"].insert(0, new_version)
+            existing_urls.add(download_url)
 
     try:
         with open(packages_json_file, "w") as f:
