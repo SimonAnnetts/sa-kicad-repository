@@ -23,7 +23,15 @@
                 "symbols"
             ],
             "versions": [
-
+                {
+                    "version": "2026.10.16",
+                    "status": "stable",
+                    "kicad_version": "10.0",
+                    "download_sha256": "3110d8c5a106f7e1e8a2d711e21ca04f118fe5684a0668466ac9076492a8d9a7",
+                    "download_size": 22380179,
+                    "install_size": 123944581,
+                    "download_url": "https://github.com/SimonAnnetts/JLCPCB-Kicad-Library/releases/download/2026.10.16/JLCPCB-KiCad-Library-2026.10.16-kicad10.zip"
+                }
             ]
         }
     ]

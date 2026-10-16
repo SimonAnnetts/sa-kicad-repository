@@ -9,8 +9,8 @@
     },
     "name": "Simon's KiCad repository",
     "packages": {
-        "update_time_utc": "2026-10-16 14:35:00",
-        "update_timestamp": 1765862100,
+        "update_time_utc": "2026-10-16 13:44:12",
+        "update_timestamp": 1792158252,
         "url": "https://raw.githubusercontent.com/SimonAnnetts/sa-kicad-repository/main/packages.json"
     },
     "resources": {
