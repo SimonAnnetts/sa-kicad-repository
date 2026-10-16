@@ -1,11 +1,11 @@
 name: Update Repository
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  # schedule:  # run 15 mins after jlcpcb kicad library
-  #   - cron: "15 6 * * *"
+  push:
+    branches:
+      - main
+  schedule:  # run 15 mins after jlcpcb kicad library
+    - cron: "15 6 * * *"
   workflow_dispatch: # allow for manually trigger workflow
 
 jobs:
