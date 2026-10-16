@@ -1,21 +1,21 @@
 {
     "$schema": "https://gitlab.com/kicad/code/kicad/-/raw/master/kicad/pcm/schemas/pcm.v1.schema.json#/definitions/Repository",
     "maintainer": {
-        "name": "Chris Dirks",
+        "name": "Simon Annetts",
         "contact": {
-            "email": "cdirksfer@gmail.com",
-            "web": "https://keastudios.co.nz/"
+            "email": "simon@ateb.co.uk",
+            "web": "https://ateb.co.uk/"
         }
     },
-    "name": "CD_FER's KiCad repository",
+    "name": "Simon's KiCad repository",
     "packages": {
-        "update_time_utc": "2025-07-19 06:43:30",
-        "update_timestamp": 1752907410,
-        "url": "https://raw.githubusercontent.com/CDFER/cd_fer-kicad-repository/main/packages.json"
+        "update_time_utc": "2026-10-16 14:35:00",
+        "update_timestamp": 1765862100,
+        "url": "https://raw.githubusercontent.com/SimonAnnetts/sa-kicad-repository/main/packages.json"
     },
     "resources": {
-        "update_time_utc": "2025-11-01 04:00:00",
-        "update_timestamp": 1761922800,
-        "url": "https://github.com/CDFER/cd_fer-kicad-repository/raw/main/resources.zip"
+        "update_time_utc": "2026-10-16 14:35:00",
+        "update_timestamp": 1765862100,
+        "url": "https://github.com/SimonAnnetts/sa-kicad-repository/raw/main/resources.zip"
     }
 }

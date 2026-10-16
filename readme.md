@@ -1,6 +1,6 @@
 # Automatic 3rd party KiCad Library Repository
 
-![GitHub Last Commit](https://img.shields.io/github/last-commit/CDFER/cd_fer-kicad-repository)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/SimonAnnetts/sa-kicad-repository)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![KiCad v8.0+](https://img.shields.io/badge/KiCad-8.0%2B-red)
 ![KiCad v9.0+](https://img.shields.io/badge/KiCad-9.0%2B-red)
@@ -20,7 +20,7 @@ Automatically maintained 3rd Party KiCad library repository, updated daily with 
 3. Add this repository URL:
 
    ```
-   https://raw.githubusercontent.com/CDFER/cd_fer-kicad-repository/main/repository.json
+   https://raw.githubusercontent.com/SimonAnnetts/sa-kicad-repository/main/repository.json
    ```
 
 KiCad will automatically alert your when to update your library.

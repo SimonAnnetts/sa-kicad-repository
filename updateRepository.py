@@ -8,14 +8,14 @@ import zipfile
 from typing import List, Dict, Optional
 
 # Configuration
-GITHUB_RELEASES_URL = "https://api.github.com/repos/CDFER/JLCPCB-Kicad-Library/releases"
+GITHUB_RELEASES_URL = "https://api.github.com/repos/SimonAnnetts/JLCPCB-Kicad-Library/releases"
 DEFAULT_STATUS = "stable"
 DEFAULT_KICAD_VERSION = "8.0"
 
 
 def get_latest_releases(releases_url: str) -> List[Dict]:
     """Fetch latest releases from GitHub repository."""
-    headers = {"Accept": "application/vnd.github.v3+json", "User-Agent": "CDFER-Kicad-Repo-Updater"}
+    headers = {"Accept": "application/vnd.github.v3+json", "User-Agent": "SimonAnnetts-Kicad-Repo-Updater"}
 
     try:
         response = requests.get(releases_url, headers=headers)
