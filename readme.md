@@ -2,9 +2,9 @@
 
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/SimonAnnetts/sa-kicad-repository)
 ![License](https://img.shields.io/badge/License-MIT-blue)
-![KiCad v8.0+](https://img.shields.io/badge/KiCad-8.0%2B-red)
-![KiCad v9.0+](https://img.shields.io/badge/KiCad-9.0%2B-red)
-![KiCad v10.0+](https://img.shields.io/badge/KiCad-10.0%2B-red)
+![KiCad v8.0+](https://img.shields.io/badge/KiCad-8.0%2B-green)
+![KiCad v9.0+](https://img.shields.io/badge/KiCad-9.0%2B-green)
+![KiCad v10.0+](https://img.shields.io/badge/KiCad-10.0%2B-green)
 
 Automatically maintained 3rd Party KiCad library repository, updated daily with the latest releases.
 
