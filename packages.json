@@ -24,6 +24,35 @@
             ],
             "versions": [
                 {
+                    "version": "2026.11.14",
+                    "status": "stable",
+                    "kicad_version": "9.0",
+                    "kicad_version_max": "9.99",
+                    "download_sha256": "bdc8db3192009e13768dafc9b73d25ae82657cb776fe33ad0607a334c871f051",
+                    "download_size": 22380184,
+                    "install_size": 123946101,
+                    "download_url": "https://github.com/SimonAnnetts/JLCPCB-Kicad-Library/releases/download/2026.11.14/JLCPCB-KiCad-Library-2026.11.14-kicad9.zip"
+                },
+                {
+                    "version": "2026.11.14",
+                    "status": "stable",
+                    "kicad_version": "8.0",
+                    "kicad_version_max": "8.99",
+                    "download_sha256": "430acf898c3f0cc0d495e0e1e14a474f444a4c703e7a2a8b68a00b4fc4857f2c",
+                    "download_size": 22380184,
+                    "install_size": 123946101,
+                    "download_url": "https://github.com/SimonAnnetts/JLCPCB-Kicad-Library/releases/download/2026.11.14/JLCPCB-KiCad-Library-2026.11.14-kicad8.zip"
+                },
+                {
+                    "version": "2026.11.14",
+                    "status": "stable",
+                    "kicad_version": "10.0",
+                    "download_sha256": "3ddf4cfe323ec61cc47f683d515af33b8b4e93c61c2ba6471053598a0cb47618",
+                    "download_size": 22380251,
+                    "install_size": 123946174,
+                    "download_url": "https://github.com/SimonAnnetts/JLCPCB-Kicad-Library/releases/download/2026.11.14/JLCPCB-KiCad-Library-2026.11.14-kicad10.zip"
+                },
+                {
                     "version": "2026.11.13",
                     "status": "stable",
                     "kicad_version": "9.0",
